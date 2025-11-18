@@ -273,10 +273,10 @@ const ChatMessages = ({
                         }}
                         transition={{ type: "spring", stiffness: 350, damping: 28, mass: 0.7 }}
                         style={{
-                          willChange: "transform, opacity, filter"
+                          willChange: "transform, opacity, filter",
+                          maxWidth: 'min(600px, 85vw)'
                         }}
                         className="min-w-[280px] w-full space-y-2 relative z-10"
-                        style={{ maxWidth: 'min(600px, 85vw)' }}
                       >
                         <motion.div className="relative">
                           <Textarea
