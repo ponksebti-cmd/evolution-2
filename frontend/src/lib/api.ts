@@ -18,6 +18,7 @@ export async function apiFetch(path: string, opts: RequestInit = {}) {
   const headers = new Headers(opts.headers || {});
   headers.set("Content-Type", headers.get("Content-Type") || "application/json");
   if (token) headers.set("Authorization", `Bearer ${token}`);
+  headers.set("ngrok-skip-browser-warning", "true");
 
   const res = await fetch(API_BASE + path, { ...opts, headers });
   if (!res.ok) {
@@ -113,7 +114,8 @@ export async function sendMessageStream(
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'ngrok-skip-browser-warning': 'true'
     },
     body: JSON.stringify({
       chat_id: chatId,
@@ -204,7 +206,8 @@ export async function transcribeAudio(audioBlob: Blob): Promise<string> {
   const response = await fetch(`${API_BASE}/audio/transcribe`, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'ngrok-skip-browser-warning': 'true'
     },
     body: formData
   });

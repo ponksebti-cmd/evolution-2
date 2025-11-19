@@ -62,6 +62,7 @@ const SettingsModal = ({ open, onOpenChange }: SettingsModalProps) => {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       });
 
@@ -91,6 +92,7 @@ const SettingsModal = ({ open, onOpenChange }: SettingsModalProps) => {
       const response = await fetch(`${API_BASE}/chats`, {
         headers: {
           Authorization: `Bearer ${token}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       });
 

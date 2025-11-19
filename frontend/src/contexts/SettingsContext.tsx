@@ -52,6 +52,7 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
         const response = await fetch(`${API_BASE}/settings`, {
           headers: {
             Authorization: `Bearer ${token}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         });
 
@@ -140,6 +141,7 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
+          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify(newSettings),
       });
